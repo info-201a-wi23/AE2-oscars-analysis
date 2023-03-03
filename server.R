@@ -13,7 +13,10 @@ library("openxlsx")
 library(tidyverse)
 library(shiny)
 
+#load oscars data
 oscars_df <- read.xlsx("oscars.xlsx")
+#adjust gender labeling
+oscars_df$gender[str_detect(oscars_df$gender, "female")] <- "Female"
 
 
 # Define server logic required to draw a histogram
