@@ -54,6 +54,7 @@ server <- function(input, output) {
           
           return(oscars1_plot)
      })
+     #viz2
      output$oscars2_plot <- renderPlot({
           
           race_data <- oscars_df %>% 
@@ -63,14 +64,33 @@ server <- function(input, output) {
                mutate(percent = wins / sum(wins) * 100) %>% 
                arrange(desc(wins))
           
-          # create a pie chart
-          oscars2_plot <- ggplot(race_data, aes(x = "", y = percent, fill = Race)) +
-               geom_bar(width = 1, stat = "identity") +
-               coord_polar(theta = "y", start = 0) +
-               labs(title = "Oscar Wins by Race", fill = "Race") +
-               theme_void()
+          gender_data <- oscars_df %>% 
+              drop_na(gender, winner) %>%
+              group_by(gender) %>% 
+              summarize(wins = sum(winner)) %>% 
+              mutate(percent = wins / sum(wins) * 100) %>% 
+              arrange(desc(wins))
           
-          return(oscars2_plot)
+          # create a pie chart
+          if (input$select == 1) {
+            oscars2_plot <- ggplot(race_data, aes(x = "", y = percent, fill = Race)) +
+              geom_bar(stat = "identity", width = 1) +
+              coord_polar(theta = "y", start = 0) +
+              labs(title = "Oscar Wins by Race", fill = "Race") +
+              theme_void()
+            #geom_text(aes(y = percent, label = percent), color = "black", size=3, 
+            #          position = position_stack(vjust = 0.5)) 
+          } else if (input$select == 2) {
+            oscars2_plot <- ggplot(gender_data, aes(x = "", y = percent, fill = gender)) +
+              geom_bar(stat = "identity", width = 1) +
+              coord_polar(theta = "y", start = 0) +
+              labs(title = "Oscar Wins by Gender", fill = "Gender") +
+              theme_void()
+            #   #geom_text(aes(y = percent, label = percent), color = "black", size=3, 
+            #   #          position = position_stack(vjust = 0.5))
+            
+            return(oscars2_plot)
+          }
      })
      #viz3
      output$oscars3_plot <- renderPlotly({

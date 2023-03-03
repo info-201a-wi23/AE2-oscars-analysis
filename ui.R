@@ -36,6 +36,14 @@ viz1_page <- tabPanel(
 
 viz2_page <- tabPanel(
      "Viz2",
+     fluidPage(selectInput("select", label = h2("Select Demographic"), 
+                   choices = list("Race" = 1, "Gender" = 2), 
+                   selected = 1),
+       
+       hr(),
+       fluidRow(column(2, verbatimTextOutput("identity")))
+       
+     ),
      plotOutput("oscars2_plot")
 )
 
