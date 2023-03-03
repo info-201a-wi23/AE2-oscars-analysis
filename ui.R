@@ -24,6 +24,13 @@ intro_page <- tabPanel(
 
 viz1_page <- tabPanel(
      "Viz1",
+     numericInput(
+          "top_n", 
+          "Top N Films to Display", 
+          value = 5, 
+          min = 1, 
+          max = 20
+     ),
      plotlyOutput("oscars1_plot")
 )
 

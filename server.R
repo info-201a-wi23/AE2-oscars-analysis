@@ -21,9 +21,9 @@ server <- function(input, output) {
      
      #intro
      output$intro_desc <- renderText({
-          "This is the introduction page."
+          "This is the intro page."
      })
-     #viz1
+     
      output$oscars1_plot <- renderPlotly({
           
           selectedPlot <- oscars_df %>% 
@@ -31,7 +31,7 @@ server <- function(input, output) {
                group_by(film) %>% 
                summarize(wins = sum(winner, na.rm = TRUE)) %>% 
                arrange(desc(wins)) %>% 
-               top_n(5)
+               top_n(input$top_n)
           
           
           oscars1_plot <- ggplot(data = selectedPlot) +
@@ -42,9 +42,9 @@ server <- function(input, output) {
                )) +
                
                labs(
-                    title = "Films with most Oscar wins",
-                    x = "film",
-                    y = "wins"
+                    title = paste0("Top ", input$top_n, " Films with Most Oscar Wins"),
+                    x = "Film",
+                    y = "Wins"
                ) +
                coord_flip() +
                scale_y_continuous(breaks = seq(1, 13, 1)) +
@@ -54,7 +54,6 @@ server <- function(input, output) {
           
           return(oscars1_plot)
      })
-     #viz2
      output$oscars2_plot <- renderPlot({
           
           race_data <- oscars_df %>% 
