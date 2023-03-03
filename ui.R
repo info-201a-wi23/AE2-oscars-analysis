@@ -26,7 +26,7 @@ viz1_page <- tabPanel(
      "Viz1",
      numericInput(
           "top_n", 
-          "Top N Films to Display", 
+          label = h4("Top N Films to Display"), 
           value = 5, 
           min = 1, 
           max = 20
@@ -36,7 +36,7 @@ viz1_page <- tabPanel(
 
 viz2_page <- tabPanel(
      "Viz2",
-     fluidPage(selectInput("select", label = h2("Select Demographic"), 
+     fluidPage(selectInput("select", label = h4("Select Demographic"), 
                    choices = list("Race" = 1, "Gender" = 2), 
                    selected = 1),
        
