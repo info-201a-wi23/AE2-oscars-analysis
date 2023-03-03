@@ -21,12 +21,12 @@ server <- function(input, output) {
      
      #intro
      output$intro_desc <- renderText({
-          
+          "This is the introduction page."
      })
      #viz1
      output$oscars1_plot <- renderPlotly({
           
-          oscars1_plot <- oscars_df %>% 
+          selectedPlot <- oscars_df %>% 
                drop_na(film, winner) %>% 
                group_by(film) %>% 
                summarize(wins = sum(winner, na.rm = TRUE)) %>% 
@@ -34,7 +34,7 @@ server <- function(input, output) {
                top_n(5)
           
           
-          ggplot(data = oscars1_plot) +
+          oscars1_plot <- ggplot(data = selectedPlot) +
                geom_col(mapping = aes(
                     x = reorder(film, wins),
                     y = wins,
@@ -55,14 +55,42 @@ server <- function(input, output) {
           return(oscars1_plot)
      })
      #viz2
-     output$oscars2_plot <- renderPlotly({
+     output$oscars2_plot <- renderPlot({
           
-          ggplotly(oscars2_plot)
+          race_data <- oscars_df %>% 
+               drop_na(Race, winner) %>%
+               group_by(Race) %>% 
+               summarize(wins = sum(winner)) %>% 
+               mutate(percent = wins / sum(wins) * 100) %>% 
+               arrange(desc(wins))
+          
+          # create a pie chart
+          oscars2_plot <- ggplot(race_data, aes(x = "", y = percent, fill = Race)) +
+               geom_bar(width = 1, stat = "identity") +
+               coord_polar(theta = "y", start = 0) +
+               labs(title = "Oscar Wins by Race", fill = "Race") +
+               theme_void()
           
           return(oscars2_plot)
      })
      #viz3
      output$oscars3_plot <- renderPlotly({
+          
+          oscars_data <- oscars_df %>%
+               mutate(gender = if_else(gender == "female", "Female", gender))
+          
+          # create a data frame with number of winners by gender and year
+          gender_data <- oscars_data %>% 
+               drop_na(gender, year_ceremony, winner) %>%
+               group_by(gender, year_ceremony) %>% 
+               summarize(wins = sum(winner)) 
+          
+          # create a line plot
+          oscars3_plot <- ggplot(gender_data, aes(x = year_ceremony, y = wins, color = gender)) +
+               geom_line() +
+               labs(title = "Oscar Winners by Gender per year", x = "Ceremony Year", y = "Number of Winners", color = "Gender") +
+               scale_x_continuous(breaks = seq(1920, 2020, 10))
+          
           
           ggplotly(oscars3_plot)
           
@@ -70,8 +98,7 @@ server <- function(input, output) {
      })
      #conclusion
      output$conclusion_desc <- renderText({
-          
+          "This is the conclusion page."
      })
-
+     
 }
-

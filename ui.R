@@ -29,7 +29,7 @@ viz1_page <- tabPanel(
 
 viz2_page <- tabPanel(
      "Viz2",
-     plotlyOutput("oscars2_plot")
+     plotOutput("oscars2_plot")
 )
 
 viz3_page <- tabPanel(
@@ -38,7 +38,8 @@ viz3_page <- tabPanel(
 )
 
 conclusion_page <- tabPanel(
-     "Conclusion"
+     "Conclusion",
+     textOutput("conclusion_desc")
 )
 
 # Define UI for application that draws a histogram
