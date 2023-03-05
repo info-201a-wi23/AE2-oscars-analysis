@@ -47,7 +47,7 @@ viz2_page <- tabPanel(
        fluidRow(column(2, verbatimTextOutput("identity")))
        
      ),
-     plotOutput("oscars2_plot")
+     plotlyOutput("oscars2_plot")
 )
 
 viz3_page <- tabPanel(
