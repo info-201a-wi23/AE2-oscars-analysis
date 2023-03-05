@@ -92,8 +92,8 @@ server <- function(input, output) {
             #   #geom_text(aes(y = percent, label = percent), color = "black", size=3, 
             #   #          position = position_stack(vjust = 0.5))
             
-            return(oscars2_plot)
           }
+          return(oscars2_plot)
      })
      #viz3
      output$oscars3_plot <- renderPlotly({
