@@ -52,6 +52,15 @@ viz2_page <- tabPanel(
 
 viz3_page <- tabPanel(
      "Viz3",
+     sliderInput(
+       inputId = "year_slider",
+       label = h5("Year Range"),
+       min = 1928,
+       max = 2020,
+       value = c(1928, 2020),
+       step = 1,
+       ticks = T
+     ),
      plotlyOutput("oscars3_plot")
 )
 

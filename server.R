@@ -105,7 +105,8 @@ server <- function(input, output) {
           gender_data <- oscars_data %>% 
                drop_na(gender, year_ceremony, winner) %>%
                group_by(gender, year_ceremony) %>% 
-               summarize(wins = sum(winner)) 
+               summarize(wins = sum(winner)) %>% 
+               filter(year_ceremony >= input$year_slider[1], year_ceremony <= input$year_slider[2])
           
           # create a line plot
           oscars3_plot <- ggplot(gender_data, aes(x = year_ceremony, y = wins, color = gender)) +
