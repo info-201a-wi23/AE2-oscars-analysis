@@ -42,8 +42,6 @@ viz2_page <- tabPanel(
      fluidPage(selectInput("select", label = h4("Select Demographic"), 
                    choices = list("Race" = 1, "Gender" = 2), 
                    selected = 1),
-       
-       hr(),
        fluidRow(column(2, verbatimTextOutput("identity")))
        
      ),
@@ -54,7 +52,7 @@ viz3_page <- tabPanel(
      "Viz3",
      sliderInput(
        inputId = "year_slider",
-       label = h5("Year Range"),
+       label = h4("Year Range"),
        min = 1928,
        max = 2020,
        value = c(1928, 2020),
