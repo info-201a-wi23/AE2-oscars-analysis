@@ -7,7 +7,7 @@ Authors:
 - Quinton Pharr (qpharr@uw.edu)
 - Connor Chan (cachan25@uw.edu)
 
-**Link: Link to your Shiny App here**
+**https://quintondpharr.shinyapps.io/final-project-quintondpharr/**
 
 Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
 
