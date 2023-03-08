@@ -1,4 +1,4 @@
-# Title of Your Final Project Here 
+# Are the Oscars Racist, Sexist, or Both? An Exploratory Analysis
 ## INFO 201 "Foundational Skills for Data Science" — Winter 2023
 
 Authors:
