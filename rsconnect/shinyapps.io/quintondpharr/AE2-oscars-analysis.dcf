@@ -1,0 +1,13 @@
+name: AE2-oscars-analysis
+title: AE2-oscars-analysis
+username:
+account: quintondpharr
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8518662
+bundleId: 6933551
+url: https://quintondpharr.shinyapps.io/AE2-oscars-analysis/
+when: 1678317450.68182
+lastSyncTime: 1678317450.68184
+asMultiple: FALSE
+asStatic: FALSE
