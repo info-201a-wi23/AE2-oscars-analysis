@@ -12,6 +12,7 @@ library("dplyr")
 library("openxlsx")
 library(tidyverse)
 library(shiny)
+library("htmltools")
 
 #load oscars data
 oscars_df <- read.xlsx("oscars.xlsx")
@@ -21,6 +22,14 @@ oscars_df$gender[str_detect(oscars_df$gender, "female")] <- "Female"
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+     
+     output$image <- renderImage({
+          # Specify the path to your image
+          filename <- "Oscars_Image.png"
+          # Return a list containing the filename and the image format
+          list(src = filename, contentType = "image/png")
+     }, deleteFile = FALSE)
+     
     #viz1
      output$oscars1_plot <- renderPlotly({
           

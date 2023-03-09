@@ -14,6 +14,7 @@ library(tidyverse)
 library(shiny)
 source('ui.R')
 source('server.R')
+library("htmltools")
 
 oscars_df <- read.xlsx("oscars.xlsx")
 

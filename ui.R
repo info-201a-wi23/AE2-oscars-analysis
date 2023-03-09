@@ -12,6 +12,7 @@ library("dplyr")
 library("openxlsx")
 library(tidyverse)
 library(shiny)
+library(htmltools)
 
 #load oscars data
 oscars_df <- read.xlsx("oscars.xlsx")
@@ -32,7 +33,7 @@ intro_page <- tabPanel(
     p("The main thing we need to consider is the limited data availability: The dataset only covers the nominations and winners from 1927 to 2020 and could be considered not as complete as there is no information available past 2020. Additionally, there could be biases in the Academy's voting process: The Academy's voting decides the nominations and winners, and might not be representative of the wider population. Another thing to take into account is user error, as Donga may have incorrectly transferred completely accurate data before publication of his dataset on Kaggle."),
     p("There could also be some discrepancies within how the categories are recorded. Within the dataset, the only things recorded as variables are for cinematography, writing, best picture, best actress/supporting actress, and best actor/supporting actor. As a result, the data is missing all of the other very important categories that come into play when making a movie. Another aspect to consider is how measuring/voting on these categories/nominees has changed over time, as the process in 1927 is possibly different than the process in 2020, and probably even again in 2023. These aspects, which are not in our control, potentially adjust dataset's criteria."),
   a(href = "https://www.kaggle.com/datasets/dharmikdonga/academy-awards-dataset-oscars?resource=download", "Kaggle Data Source"),
-     
+     imageOutput("image")
 )
 
 
