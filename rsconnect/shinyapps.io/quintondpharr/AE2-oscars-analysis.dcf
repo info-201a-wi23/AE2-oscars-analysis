@@ -5,9 +5,9 @@ account: quintondpharr
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8518662
-bundleId: 6936050
+bundleId: 6939960
 url: https://quintondpharr.shinyapps.io/AE2-oscars-analysis/
-when: 1678361730.35747
-lastSyncTime: 1678361730.35749
+when: 1678426125.98843
+lastSyncTime: 1678426125.98844
 asMultiple: FALSE
 asStatic: FALSE
