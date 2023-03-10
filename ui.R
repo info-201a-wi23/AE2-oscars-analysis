@@ -38,45 +38,62 @@ intro_page <- tabPanel(
      imageOutput("image")
 )
 
-
 viz1_page <- tabPanel(
-     "Viz1",
-     numericInput(
-          "top_n", 
-          label = h4("Top N Films to Display"), 
-          value = 5, 
-          min = 1, 
-          max = 20
-     ),
-     plotlyOutput("oscars1_plot"),
-     textOutput("viz1_desc")
+  "Viz1",
+  fluidPage(
+    sidebarLayout(
+      sidebarPanel(numericInput(
+        "top_n", 
+        label = h4("Top N Films to Display"), 
+        value = 5, 
+        min = 1, 
+      )),
+      mainPanel(
+        plotlyOutput("oscars1_plot"),
+        h3("Chart Purpose", align = "center"),
+        textOutput("viz1_desc"))
+    )
+  )
 )
 
 viz2_page <- tabPanel(
-     "Viz2",
-     fluidPage(selectInput("select", label = h4("Select Demographic"), 
-                           choices = list("Race" = 1, "Gender" = 2), 
-                           selected = 1)
-               
-     ),
-     plotlyOutput("oscars2_plot"),
-     textOutput("viz2_desc")
+  "Viz2",
+  fluidPage(
+    sidebarLayout(
+      sidebarPanel(selectInput("select", label = h4("Select Demographic"), 
+                               choices = list("Race" = 1, "Gender" = 2), 
+                               selected = 1
+      )),
+      mainPanel(
+        plotlyOutput("oscars2_plot"),
+        h3("Chart Purpose", align = "center"),
+        textOutput("viz2_desc"))
+    )
+  )
 )
 
+
 viz3_page <- tabPanel(
-     "Viz3",
-     sliderInput(
-       inputId = "year_slider",
-       label = h4("Year Range"),
-       min = 1928,
-       max = 2020,
-       value = c(1928, 2020),
-       step = 1,
-       ticks = T
-     ),
-     plotlyOutput("oscars3_plot"),
-     textOutput("viz3_desc")
+  "Viz3",
+  fluidPage(
+    sidebarLayout(
+      sidebarPanel(sliderInput(
+        inputId = "year_slider",
+        label = h4("Year Range"),
+        min = 1928,
+        max = 2020,
+        value = c(1928, 2020),
+        step = 1,
+        ticks = T
+      )),
+      mainPanel(
+        plotlyOutput("oscars3_plot"),
+        h3("Chart Purpose", align = "center"),
+        textOutput("viz3_desc"))
+    )
+  )
 )
+
 
 conclusion_page <- tabPanel(
      "Conclusion",

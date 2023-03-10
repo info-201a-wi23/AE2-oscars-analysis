@@ -102,11 +102,12 @@ server <- function(input, output) {
      
      output$viz2_desc <- renderText({
           if (input$select == 1) {
-               "This pie chart shows the distribution of Oscar wins by race. Each slice of the pie represents a different race, and the size of the slice indicates the percentage of Oscar wins for that race out of the total wins for all races. The chart can be used to compare the distribution of wins between different races."
+               "This pie chart shows the distribution of Oscar wins by race. In the pie plotly above, we decided to represent the proportions of race diversity at the Oscars. Pie charts are a great way to organize and show data by representing the different slices as a percentage of the whole. By using the widget, you can switch between the race-based graph and the gender-based graph. Our pie chart slices are broken up into four recorded races: White, Black, Asian, and Hispanic. Through this, we were able to identify that the majority of the winners/nominees were White. When hovering over the pie section, the exact value can be read."
           } else {
-               "This pie chart shows the distribution of Oscar wins by gender. Each slice of the pie represents a different gender, and the size of the slice indicates the percentage of Oscar wins for that gender out of the total wins for all genders. The chart can be used to compare the distribution of wins between different genders."
+               "This pie chart shows the distribution of Oscar wins by gender In the pie plotly above, we decided to represent the proportions of race diversity at the Oscars. Pie charts are a great way to organize and show data by representing the different slices as a percentage of the whole. By using the widget, you can switch between the race-based graph and the gender-based graph. Our pie chart slices are broken up into ftwo recorded genders: Male and Female. Through this, we were able to identify that the majority of the winners/nominees were White. When hovering over the pie section, the exact value can be read."
           }
      })
+     
      
      #viz3
      output$oscars3_plot <- renderPlotly({
@@ -134,6 +135,6 @@ server <- function(input, output) {
      })
      
      output$viz3_desc <- renderText({
-          paste("This plot shows the number of Oscar winners by gender per year within the selected year range. The x-axis represents the ceremony year, and the y-axis represents the number of winners. Each gender is represented by a different colored line. The plot can be used to compare the number of winners between different genders and observe trends over time.")
+          paste("The bar graph above features Oscar data between the years 1928 and 2020. This specific graph represents the top award-worthy films with the greatest amount of Oscar wins. By using the widget, the number of films ranked can be changed in order to see the different number of wins in descending order. The initial value set is 5, so we can see that Titanic won 12 awards, Lord of the Rings and Ben-Hur tied for 11 awards, West side Story won 10 awards, and The Last Emperor, The English Patient, and Gigi tied for winning 9 awards at the Oscars. As the value in the widget is adjusted, so will the number of films shown on the bar graph. Overall, the graph provides an overview of the films with the highest amount of Oscar wins, showcasing the accomplishments of these movies. The graph layout is deliberately set up to make it easy to compare film nominations with one another. In addition, the chart reveals trends of Oscar wins over the history of the Oscars, critiques, and film enthusiasts to find and discover which films tend to succeed at the Oscars.")
      })
 }
