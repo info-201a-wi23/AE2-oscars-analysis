@@ -42,7 +42,7 @@ server <- function(input, output) {
           
                
                output$viz1_desc <- renderText({
-                    paste("This plot shows the top", input$top_n, "films with the most Oscar wins. The films are                     ranked in descending order of their wins and are represented by bars. The height of each bar                     represents the number of wins for a particular film. The film names are listed on the y-axis                     , and the number of wins is shown on the x-axis. The plot can be used to compare the number                     of wins between different films.")
+                    paste("This bar plot shows the top", input$top_n, "films with the most Oscar wins. This specific graph represents the top award-worthy films with the greatest amount of Oscar wins. By using the widget, the number of films ranked can be changed in order to see the different number of wins in descending order. The initial value set is 5, so we can see that Titanic won 12 awards, Lord of the Rings and Ben-Hur tied for 11 awards, West side Story won 10 awards, and The Last Emperor, The English Patient, and Gigi tied for winning 9 awards at the Oscars. As the value in the widget is adjusted, so will the number of films shown on the bar graph. Overall, the graph provides an overview of the films with the highest amount of Oscar wins, showcasing the accomplishments of these movies. The graph layout is deliberately set up to make it easy to compare film nominations with one another. In addition, the chart reveals trends of Oscar wins over the history of the Oscars, critiques, and film enthusiasts to find and discover which films tend to succeed at the Oscars.")
                })
                
           
