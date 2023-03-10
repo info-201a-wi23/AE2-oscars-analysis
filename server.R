@@ -40,6 +40,11 @@ server <- function(input, output) {
                arrange(desc(wins)) %>% 
                top_n(input$top_n)
           
+               
+               output$viz1_desc <- renderText({
+                    paste("This plot shows the top", input$top_n, "films with the most Oscar wins. The films are                     ranked in descending order of their wins and are represented by bars. The height of each bar                     represents the number of wins for a particular film. The film names are listed on the y-axis                     , and the number of wins is shown on the x-axis. The plot can be used to compare the number                     of wins between different films.")
+               })
+               
           
           oscars1_plot <- ggplot(data = selectedPlot) +
                geom_col(mapping = aes(

@@ -48,7 +48,8 @@ viz1_page <- tabPanel(
           min = 1, 
           max = 20
      ),
-     plotlyOutput("oscars1_plot")
+     plotlyOutput("oscars1_plot"),
+     textOutput("viz1_desc")
 )
 
 viz2_page <- tabPanel(
