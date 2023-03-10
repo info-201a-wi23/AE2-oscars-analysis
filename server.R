@@ -100,6 +100,14 @@ server <- function(input, output) {
        return(ggplotly(oscars2_plot))
      })
      
+     output$viz2_desc <- renderText({
+          if (input$select == 1) {
+               "This pie chart shows the distribution of Oscar wins by race. Each slice of the pie represents a different race, and the size of the slice indicates the percentage of Oscar wins for that race out of the total wins for all races. The chart can be used to compare the distribution of wins between different races."
+          } else {
+               "This pie chart shows the distribution of Oscar wins by gender. Each slice of the pie represents a different gender, and the size of the slice indicates the percentage of Oscar wins for that gender out of the total wins for all genders. The chart can be used to compare the distribution of wins between different genders."
+          }
+     })
+     
      #viz3
      output$oscars3_plot <- renderPlotly({
           
@@ -123,5 +131,9 @@ server <- function(input, output) {
           ggplotly(oscars3_plot)
           
           return(oscars3_plot)
+     })
+     
+     output$viz3_desc <- renderText({
+          paste("This plot shows the number of Oscar winners by gender per year within the selected year range. The x-axis represents the ceremony year, and the y-axis represents the number of winners. Each gender is represented by a different colored line. The plot can be used to compare the number of winners between different genders and observe trends over time.")
      })
 }

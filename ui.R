@@ -55,12 +55,12 @@ viz1_page <- tabPanel(
 viz2_page <- tabPanel(
      "Viz2",
      fluidPage(selectInput("select", label = h4("Select Demographic"), 
-                   choices = list("Race" = 1, "Gender" = 2), 
-                   selected = 1),
-       fluidRow(column(2, verbatimTextOutput("identity")))
-       
+                           choices = list("Race" = 1, "Gender" = 2), 
+                           selected = 1)
+               
      ),
-     plotlyOutput("oscars2_plot")
+     plotlyOutput("oscars2_plot"),
+     textOutput("viz2_desc")
 )
 
 viz3_page <- tabPanel(
@@ -74,7 +74,8 @@ viz3_page <- tabPanel(
        step = 1,
        ticks = T
      ),
-     plotlyOutput("oscars3_plot")
+     plotlyOutput("oscars3_plot"),
+     textOutput("viz3_desc")
 )
 
 conclusion_page <- tabPanel(
